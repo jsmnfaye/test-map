@@ -52,10 +52,10 @@ export class MapPage {
     });
 
     this.map.setCenter(latLng);
-    this.startNavigating(latLng);
+    this.createMyRoute(latLng);
   }
   
-  startNavigating(origin){
+  createMyRoute(origin){
     let loading = this.loadCtrl.create({
       content: 'Calculating your route...'
     });
@@ -66,6 +66,7 @@ export class MapPage {
     directionsDisplay.setMap(this.map);
     directionsDisplay.setPanel(this.directionsPanel.nativeElement);
 
+    // these are other locations you will pass through
     this.myWaypoints = [
       {
         location: 'Robinsons Place Manila',
